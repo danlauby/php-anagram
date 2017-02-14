@@ -7,11 +7,11 @@
         {
             //Arrange
             $test_newWord = new Anagram;
-            $inputOne = "hello";
-            $inputTwo = "olleh";
+            $input_one = "hello";
+            $input_two = "olleh";
 
             //Act
-            $result = $test_newWord->checkWord($inputOne, $inputTwo);
+            $result = $test_newWord->checkWord($input_one, $input_two);
 
             //Assert
             $this->assertEquals(1, $result);
@@ -22,13 +22,27 @@
         {
             //Arrange
             $test_newlower = new Anagram;
-            $inputOne = "hello";
+            $input_one = "hello";
 
             //Act
-            $result = $test_newlower->checkCapitalized($inputOne);
+            $result = $test_newlower->checkCapitalized($input_one);
 
             //Assert
             $this->assertEquals("HELLO", $result);
+        }
+
+        function test_multWords()
+        {
+            // Arrange
+            $test_multiWord = new Anagram;
+            $input_one = "eholl";
+            $input_words = "hello whale sunshine";
+
+            // Act
+            $result = $test_multiWord->checkMultWords($input_one, $input_words);
+
+            // Assert
+            $this->assertEquals(1, $result);
         }
     }
 
