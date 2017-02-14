@@ -27,8 +27,6 @@ $app->post("/run", function() use($app) {
     $input_one = $_POST['word'];
     $input_words = $_POST['multiple'];
     $new_anagram = new Anagram($input_one, $input_words);
-    // $new_anagram->checkWord($input_one, $input_words);
-    // $new_anagram->checkCapitalized($input_one, $input_words);
     $answer = $new_anagram->checkMultWords($input_one, $input_words);
     $new_anagram->save();
 
