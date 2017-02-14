@@ -17,6 +17,19 @@
             $this->assertEquals(1, $result);
 
         }
+
+        function test_checkCapitalized()
+        {
+            //Arrange
+            $test_newlower = new Anagram;
+            $inputOne = "hello";
+
+            //Act
+            $result = $test_newlower->checkCapitalized($inputOne);
+
+            //Assert
+            $this->assertEquals("HELLO", $result);
+        }
     }
 
 
