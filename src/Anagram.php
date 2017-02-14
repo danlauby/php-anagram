@@ -1,39 +1,49 @@
 <?php
     class Anagram
     {
-            function checkWord($input_one, $input_two)
-            {
-                return(count_chars($input_one, 1) == count_chars($input_two, 1));
-            }
+        public $word;
+        public $multiple_words;
 
-            function checkCapitalized($input_one)
-            {
-                return(strtoupper($input_one));
-            }
+        function __construct($new_word, $new_multiple_words)
+        {
+            $this->word = $new_word;
+            $this->multiple_words = $new_multiple_words;
+        }
 
-            // function checkMultWords($input_one, $input_words)
-            // {
-            //     $sep_words = explode(" ", $input_words);
-            //     foreach ($sep_words as $word) {
-		    //               return(count_chars($input_one, 1) == count_chars($word, 1));
-	        //     }
-            //
-            // }
+        static function getAll()
+           {
+               return $_SESSION['list_of_words'];
+           }
 
-            function checkMultWords($input_one, $input_words)
-            {
-                $sep_words = explode(" ", $input_words);
-                $anagramAnswer = [];
-	            for ($i=0; $i<count($sep_words); $i++) {
-		            if (count_chars($input_one, 1) == count_chars($sep_words[$i], 1))
-			        {
-			        array_push($anagramAnswer, $sep_words[$i] . ": ANAGRAM");
-			        } else {
-			        array_push($anagramAnswer, $sep_words[$i] . ": Not an anagram");
-			    }
-	           };
-	            return implode(" ", $anagramAnswer);
-            }
+           function save()
+   {
+       array_push($_SESSION['list_of_words'], $this);
+   }
+
+        function checkWord($new_word, $new_multiple_words)
+        {
+            return(count_chars($new_word, 1) == count_chars($new_multiple_words, 1));
+        }
+
+        function checkCapitalized($new_word)
+        {
+            return(strtoupper($new_word));
+        }
+
+        function checkMultWords($new_word, $new_multiple_words)
+        {
+            $sep_words = explode(" ", $new_multiple_words);
+            $anagramAnswer = [];
+            for ($i=0; $i<count($sep_words); $i++) {
+	            if (count_chars($new_word, 1) == count_chars($sep_words[$i], 1))
+		        {
+		        array_push($anagramAnswer, $sep_words[$i] . ": ANAGRAM");
+		        } else {
+		        array_push($anagramAnswer, $sep_words[$i] . ": Not an anagram");
+		    }
+           };
+            return implode(" ", $anagramAnswer);
+        }
 
     }
 
