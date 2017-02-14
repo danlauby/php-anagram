@@ -42,10 +42,7 @@
             $result = $test_multiWord->checkMultWords($input_one, $input_words);
 
             // Assert
-            $this->assertEquals(1, $result);
+            $this->assertEquals('MATCH NOPE NOPE', $result);
         }
     }
-
-
-
 ?>
