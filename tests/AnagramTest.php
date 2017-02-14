@@ -36,13 +36,13 @@
             // Arrange
             $test_multiWord = new Anagram;
             $input_one = "eholl";
-            $input_words = "hello whale sunshine";
+            $input_words = "whale hello sunshine";
 
             // Act
             $result = $test_multiWord->checkMultWords($input_one, $input_words);
 
             // Assert
-            $this->assertEquals('MATCH NOPE NOPE', $result);
+            $this->assertEquals('whale: Not an anagram hello: ANAGRAM sunshine: Not an anagram', $result);
         }
     }
 ?>

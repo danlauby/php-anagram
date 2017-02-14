@@ -27,9 +27,9 @@
 	            for ($i=0; $i<count($sep_words); $i++) {
 		            if (count_chars($input_one, 1) == count_chars($sep_words[$i], 1))
 			        {
-			        array_push($anagramAnswer, "MATCH");
+			        array_push($anagramAnswer, $sep_words[$i] . ": ANAGRAM");
 			        } else {
-			        array_push($anagramAnswer, "NOPE");
+			        array_push($anagramAnswer, $sep_words[$i] . ": Not an anagram");
 			    }
 	           };
 	            return implode(" ", $anagramAnswer);
